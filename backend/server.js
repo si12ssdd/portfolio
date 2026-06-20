@@ -17,7 +17,7 @@ connectDB();
 // Middleware
 app.use(cors({
   origin: process.env.NODE_ENV === 'production'
-    ? ['https://your-portfolio.vercel.app']
+    ? [process.env.FRONTEND_URL, 'https://your-portfolio.vercel.app'].filter(Boolean)
     : ['http://localhost:5173', 'http://localhost:3000'],
   credentials: true,
 }));
